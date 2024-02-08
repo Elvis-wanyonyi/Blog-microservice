@@ -1,0 +1,45 @@
+server:
+  port: 8000
+#
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: api-gateway
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/jwtdb
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+  #    database-platform: org.hibernate.dialect.MysqlDialect
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: posts
+          uri: lb://posts
+          predicates:
+          - Path=/post
+
+        - id: comments
+          uri: http://localhost:8001
+          predicates:
+          - Path=/comments
+
+        - id: users
+          uri: http://localhost:8081
+          predicates:
+          - Path=/users
