@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class ProfileResponse {
 
     private String firstName;
-    private String userName;
+    private String username;
     private String email;
     // list of posts and comments
     //

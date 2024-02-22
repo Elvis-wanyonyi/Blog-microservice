@@ -1,7 +1,6 @@
 package com.wolfcode.users.controller;
 
 import com.wolfcode.users.model.ProfileResponse;
-import com.wolfcode.users.model.UserRequest;
 import com.wolfcode.users.model.UserResponse;
 import com.wolfcode.users.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,38 +16,32 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public String createAccount(@RequestBody UserRequest userRequest, String userName){
-        userService.createAccount(userRequest, userName);
-        return "Account created successfully";
-    }
 
     @GetMapping("details/{userName}")
     @ResponseStatus(HttpStatus.FOUND)
-    public UserResponse myDetails(@PathVariable ("userName") String userName){
-        return userService.myDetails(userName);
+    public UserResponse myDetails(@PathVariable ("username") String username){
+        return userService.myDetails(username);
 
     }
 
-    @GetMapping("/{userName}")
+    @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public ProfileResponse viewProfile(@PathVariable ("userName") String userName){
-        return userService.viewProfile(userName);
+    public ProfileResponse viewProfile(@PathVariable ("username") String username){
+        return userService.viewProfile(username);
     }
 
-    @PutMapping("/updateProfile/{userName}")
+    @PutMapping("/updateProfile/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public String updateProfile(@PathVariable("userName") String userName){
-        userService.updateProfile(userName);
+    public String updateProfile(@PathVariable("userName") String username){
+        userService.updateProfile(username);
 
         return "Success!!";
     }
 
     @DeleteMapping("/deactivate/{userName}")
     @ResponseStatus(HttpStatus.OK)
-    public String deleteUser(@PathVariable String userName){
-        userService.deleteUser(userName);
+    public String deleteUser(@PathVariable String username){
+        userService.deleteUser(username);
         return "Account Deactivated";
     }
 

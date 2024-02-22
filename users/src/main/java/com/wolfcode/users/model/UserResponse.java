@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class UserResponse {
     private String userId;
     private String firstName;
-    private String lastname;
-    private String userName;
+    private String lastName;
+    private String username;
     private String email;
 
 }

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/users
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MysqlDialect
+server:
+  port: 0
+
+#jwt:
+#  secret-key: "4b48ad3f28c5ffaf63213a72a5f9ee5ca0701123009bb36a8b65ab3bd6841dc6"

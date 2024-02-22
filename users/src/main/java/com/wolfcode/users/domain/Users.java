@@ -13,23 +13,24 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
 public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(unique = true)
     private String userId;
     @Column(nullable = false)
     private String firstName;
-    private String lastname;
+    private String lastName;
     @Column(unique = true, nullable = false, length = 10)
-    private String userName;
+    private String username;
     @Column( nullable = false, unique = true)
     private String email;
     private LocalDateTime joinedOn;
 
+
 }
-
-
-//DOB, phone, location,password >>>>to be embedded
+//
+//
+////DOB, phone, location,password >>>>to be embedded

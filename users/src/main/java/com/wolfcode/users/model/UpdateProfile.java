@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class UpdateProfile {
     private String firstName;
     private String lastname;
-    private String userName;
+    private String username;
 }
